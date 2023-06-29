@@ -31,8 +31,11 @@ st.write(" This is an example of what our data looks like.")
 st.write(df.head())
 #st.write("\n")
 # Showing the country symbols and experience level problems
-df['experience_level'].unique()
-df['experience_level'].value_counts()
+col1, col2 = st.columns(2)
+col1.write('Experience level column')
+col1.write(df['experience_level'].unique())
+col2.write('employee residence column')
+col2.write(df['employee_residence'].unique())
 
 st.write(df.isna().sum())
 st.write(
@@ -143,19 +146,14 @@ st.subheader(
 )
 average_job_title_salary = df.groupby(
   'job_title')['salary_in_usd'].mean().reset_index()
-ffig = plt.figure(figsize=(15, 15))
+fig = plt.figure(figsize=(10, 4))
 sns.barplot(average_job_title_salary, x='job_title', y='salary_in_usd')
 plt.title('Average Salary Based on Job Title')
 plt.xticks(rotation=90)
 sns.set(font_scale=0.3)
 sns.set(rc={'figure.figsize': (15, 5)})
 #plt.xlabel("petal_length", fontsize=0)
-st.pyplot(ffig)
-
-fig = px.bar(average_job_title_salary, x='job_title', y='salary_in_usd')
-fig.update_layout(title='Average Salary Based on Job Title', xaxis_tickangle=-45)
-st.plotly_chart(fig, use_container_width=True)
-
+st.pyplot(fig)
 
 st.write(
   'This bar graph shows the average salary of a data scientists based off their job title.'
@@ -187,12 +185,12 @@ plt.title('Average Salary Based on Experience Level')
 fig = violin.get_figure()
 st.pyplot(fig)
 
-# violin = sns.violinplot(df, x="experience_level", y="salary_in_usd")
-# plt.title('Average Salary Based on Experience Level')
-# # plt.show()
-# # st.pyplot(violin)
-# st.pyplot(fig)
-# #Summary of graph
+violin = sns.violinplot(df, x="experience_level", y="salary_in_usd")
+plt.title('Average Salary Based on Experience Level')
+# plt.show()
+# st.pyplot(violin)
+st.pyplot(fig)
+#Summary of graph
 
 st.write(
   "This graph shows the distribution of salaries based off experience level. The thicker the violin graph gets the more people are in that salary range."
@@ -231,6 +229,9 @@ st.write(
 
 # Hypothesis 4: How does the amount of remote work affect a data science  salary in usd? -Jamie
 # Insert code here
+st.subheader(
+  "Hypthesis 4: Does the amount of remote work a data scientists has affect their average salary?"
+)
 Hypothesis_4 = df.groupby("remote_ratio")['salary_in_usd'].mean().reset_index()
 fig = px.pie(Hypothesis_4,
              values='salary_in_usd',
