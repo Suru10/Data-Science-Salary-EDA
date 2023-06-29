@@ -9,8 +9,9 @@ import plotly.graph_objects as go
 
 warnings.filterwarnings("ignore")
 df = pd.read_csv('ds_salaries.csv')
-
-st.title('Hi')
+#Introduction
+st.title('Whimsical Wolves ')
+st.write()
 
 # Code for Inspection:
 df.head()
