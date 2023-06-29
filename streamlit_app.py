@@ -148,6 +148,11 @@ st.subheader(
 )
 average_job_title_salary = df.groupby(
   'job_title')['salary_in_usd'].mean().reset_index()
+
+fig = px.bar(average_job_title_salary, x='job_title', y='salary_in_usd')
+fig.update_layout(title='Average Salary Based on Job Title', xaxis_tickangle=-45)
+st.plotly_chart(fig, use_container_width=True)
+
 fig = plt.figure(figsize=(10, 4))
 sns.barplot(average_job_title_salary, x='job_title', y='salary_in_usd')
 plt.title('Average Salary Based on Job Title')
