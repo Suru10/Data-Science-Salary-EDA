@@ -10,8 +10,13 @@ import plotly.graph_objects as go
 warnings.filterwarnings("ignore")
 df = pd.read_csv('ds_salaries.csv')
 #Introduction
-st.title('Whimsical Wolves ')
-st.write()
+st.subheader('Whimsical Wolves ')
+st.write(' Hello, my name is Jamie, I am in 7th grade and I have learned how to code in the past 5 days')
+st.write('Hello, my name is Joshua, I am in 10th grade and I ')
+#Title
+st.title('Data Science Salaries 2023 EDA')
+# Inspection:
+st.subheader('Inspectionm')
 
 # Code for Inspection:
 df.head()
@@ -121,6 +126,7 @@ df['employee_residence'] = df['employee_residence'].replace(country_mapping)
 
 # Hypothesis 1: Which job title, for data science, on average has the highest salary? Joshua
 # Insert code here
+st.title('Hypothesis 1')
 average_job_title_salary = df.groupby(
   'job_title')['salary_in_usd'].mean().reset_index()
 g = sns.barplot(average_job_title_salary, x='job_title', y='salary_in_usd')
@@ -129,6 +135,9 @@ plt.xticks(rotation=90)
 sns.set(rc={'figure.figsize': (15, 5)})
 plt.xlabel("sepal_length", fontsize=2)
 plt.show()
+
+st.write('This bar graph shows the average salary of a data scientists based off their job title.')
+st.
 # Summary of graph
 
 # This bar graph shows the average salary of a data scientists based off their job title. This graph is very straghtforward and it is clear that there is a big wage gap between job titles.
