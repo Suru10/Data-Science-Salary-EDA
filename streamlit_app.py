@@ -143,13 +143,15 @@ st.subheader(
 )
 average_job_title_salary = df.groupby(
   'job_title')['salary_in_usd'].mean().reset_index()
-fig = plt.figure(figsize=(12, 6))  # Increase the width of the figure
-
-sns.barplot(data=average_job_title_salary, x='job_title', y='salary_in_usd')
+ffig = plt.figure(figsize=(10, 4))
+sns.barplot(average_job_title_salary, x='job_title', y='salary_in_usd')
 plt.title('Average Salary Based on Job Title')
-plt.xticks(rotation=90)  # Rotate the x-axis labels
-plt.xlabel("Job Title")  # Correct the x-axis label
-st.pyplot(fig)
+plt.xticks(rotation=90)
+sns.set(font_scale=0.3)
+sns.set(rc={'figure.figsize': (15, 5)})
+#plt.xlabel("petal_length", fontsize=0)
+st.pyplot(ffig)
+
 fig = px.bar(average_job_title_salary, x='job_title', y='salary_in_usd')
 fig.update_layout(title='Average Salary Based on Job Title', xaxis_tickangle=-45)
 st.plotly_chart(fig, use_container_width=True)
