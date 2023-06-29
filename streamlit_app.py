@@ -10,9 +10,9 @@ import plotly.graph_objects as go
 warnings.filterwarnings("ignore")
 df = pd.read_csv('ds_salaries.csv')
 # Introduction
-st.subheader('Whimsical Wolves ')
+st.header('Whimsical Wolves ')
 st.write(
-  ' Hello, my name is Jamie, I am in 7th grade and I have learned how to code in the past 5 days'
+  ' Hi, my name is Jamie, I am in 7th grade and I have learned how to code in the past 5 days'
 )
 st.write(
   "Hello, my name is Joshua, I am in 10th grade and I've been coding for the last 4 years. I've learned languages such as python, java, and SQL."
@@ -20,7 +20,7 @@ st.write(
 # Title
 st.title('Data Science Salaries 2023 EDA')
 st.write(
-  'This data set is comprised of information about jobs related to analyzing data and how it affects their salary. The data set was updated 3 months ago. The Data has been sourced from aijobs.net.'
+  'This data set is comprised of information about different components of Ai jobs how it affects their salary. The data set was updated 3 months ago. The Data has been sourced from aijobs.net.'
 )
 st.markdown("""---""")
 
@@ -30,14 +30,17 @@ st.header('Inspection:')
 st.write(" This is an example of what our data looks like:")
 st.write("\n")
 st.write(df.head())
-st.write( 'The experience level and The employee residence columns have values that  ')
+
+st.write(
+  'The experience level and The employee residence columns have symbols that could be unclear or confusing, so it will be fixed later.'
+)
 
 col1, col2 = st.columns(2)
 col1.write(df.isna().sum())
 col2.write(
   "According to the graph there is no null values, that's good because it keeps the data consistent."
 )
-
+st.markdown("""---""")
 # Code for Cleaning:
 #Drop Code
 columns_to_drop = ['salary', 'salary_currency', 'employment_type']
@@ -237,5 +240,9 @@ st.write(
   "The information from the graph above shows that data scientists who do none of their work remote tend to make significantly more than data scientists who do 50% remote work."
 )
 st.markdown("""---""")
-st.write("Data scientists who only do remote work actually average a salary of 135k per year which is significantly more than data scientists with 50% remote work but still less than data scientists with zero remote work.")
-
+st.write(
+  "Data scientists who only do remote work actually average a salary of 135k per year which is significantly more than data scientists with 50% remote work but still less than data scientists with zero remote work."
+)
+st.markdown("""---""")
+st.title("Final Conclusions")
+st.subheader("Hypothesis 1")
