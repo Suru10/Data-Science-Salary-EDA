@@ -30,7 +30,7 @@ st.header('Inspection:')
 st.write(" This is an example of what our data looks like:")
 st.write("\n")
 st.write(df.head())
-st.write( 'The experience level column and The employye residence  ')
+st.write( 'The experience level and The employee residence columns have values that  ')
 
 col1, col2 = st.columns(2)
 col1.write(df.isna().sum())
@@ -208,7 +208,7 @@ fig = px.bar(
   x=Hypothesis_3["employee_residence"],
   y=Hypothesis_3['salary_in_usd'],
 )
-st.pyplot(fig)
+st.plotly_chart(fig, use_container_width=True)
 # Ctrl + /
 # command + /
 #Trends in Graph
@@ -230,7 +230,7 @@ fig = px.pie(Hypothesis_4,
              values='salary_in_usd',
              names='remote_ratio',
              color_discrete_sequence=px.colors.sequential.RdBu)
-st.pyplot(fig)
+st.plotly_chart(fig, use_container_width=True)
 
 # Trends in the Graph
 st.write(
@@ -238,3 +238,4 @@ st.write(
 )
 st.markdown("""---""")
 st.write("Data scientists who only do remote work actually average a salary of 135k per year which is significantly more than data scientists with 50% remote work but still less than data scientists with zero remote work.")
+
