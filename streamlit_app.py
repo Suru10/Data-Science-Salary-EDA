@@ -167,10 +167,14 @@ st.subheader(
   "Hypthesis 2: How much does a data scientist's experience level affect their salary?"
 )
 
-fig = sns.violinplot(df, x="experience_level", y="salary_in_usd")
+fig, ax = plt.subplots()
+violin = sns.violinplot(data=df, x="experience_level", y="salary_in_usd", ax=ax)
+
+# violin = sns.violinplot(df, x="experience_level", y="salary_in_usd")
 plt.title('Average Salary Based on Experience Level')
 # plt.show()
 # st.pyplot(violin)
+fig = violin.get_figure()
 st.pyplot(fig)
 #Summary of graph
 
