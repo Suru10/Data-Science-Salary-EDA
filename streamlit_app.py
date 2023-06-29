@@ -27,7 +27,7 @@ st.markdown("""---""")
 # Inspection:
 #exampple of the data
 st.header('Inspection:')
-st.write(" This is an example of what our data looks like.")
+st.write(" This is an example of what our data looks like:")
 st.write(df.head())
 #st.write("\n")
 # Showing the country symbols and experience level problems
@@ -36,7 +36,6 @@ col1.write('Experience level column')
 col1.write(df['experience_level'].unique())
 col2.write('Employee residence column')
 col2.write(df['employee_residence'].unique())
-
 
 col1, col2 = st.columns(2)
 st.write(df.isna().sum())
@@ -150,16 +149,9 @@ average_job_title_salary = df.groupby(
   'job_title')['salary_in_usd'].mean().reset_index()
 
 fig = px.bar(average_job_title_salary, x='job_title', y='salary_in_usd')
-fig.update_layout(title='Average Salary Based on Job Title', xaxis_tickangle=-45)
+fig.update_layout(title='Average Salary Based on Job Title',
+                  xaxis_tickangle=-45)
 st.plotly_chart(fig, use_container_width=True)
-
-fig = plt.figure(figsize=(10, 4))
-sns.barplot(average_job_title_salary, x='job_title', y='salary_in_usd')
-plt.title('Average Salary Based on Job Title')
-plt.xticks(rotation=90)
-plt.xlabel("petal_length", fontsize=1)
-sns.set(rc={'figure.figsize': (15, 5)})
-st.pyplot(fig)
 
 st.write(
   'This bar graph shows the average salary of a data scientists based off their job title.'
