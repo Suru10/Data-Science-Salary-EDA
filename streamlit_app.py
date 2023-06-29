@@ -28,14 +28,14 @@ st.markdown("""---""")
 #exampple of the data
 st.header('Inspection:')
 st.write(" This is an example of what our data looks like:")
+st.write("\n")
 st.write(df.head())
-#st.write("\n")
-# Showing the country symbols and experience level problems
+st.write( 'The experience level column and The employye residence  ')
 
 col1, col2 = st.columns(2)
 col1.write(df.isna().sum())
-col2.text(
-  'According to the graph there is no null values, which keeps the data consistent.'
+col2.write(
+  "According to the graph there is no null values, that's good because it keeps the data consistent."
 )
 
 # Code for Cleaning:
@@ -208,7 +208,7 @@ fig = px.bar(
   x=Hypothesis_3["employee_residence"],
   y=Hypothesis_3['salary_in_usd'],
 )
-fig.show()
+st.pyplot(fig)
 # Ctrl + /
 # command + /
 #Trends in Graph
@@ -230,9 +230,11 @@ fig = px.pie(Hypothesis_4,
              values='salary_in_usd',
              names='remote_ratio',
              color_discrete_sequence=px.colors.sequential.RdBu)
-fig.show()
+st.pyplot(fig)
 
 # Trends in the Graph
-#   The Data scientist that work 0% remote make the most with an average salary of around 144k.
-#   The Data scientist that work 50% remote make the least with an average salary of 80k.
-#   The Data scientist that work 100% remote make an average salary of 135k.
+st.write(
+  "The information from the graph above shows that data scientists who do none of their work remote tend to make significantly more than data scientists who do 50% remote work."
+)
+st.markdown("""---""")
+st.write("Data scientists who only do remote work actually average a salary of 135k per year which is significantly more than data scientists with 50% remote work but still less than data scientists with zero remote work.")
