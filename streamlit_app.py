@@ -11,7 +11,9 @@ warnings.filterwarnings("ignore")
 df = pd.read_csv('ds_salaries.csv')
 #Introduction
 st.subheader('Whimsical Wolves ')
-st.write(' Hello, my name is Jamie, I am in 7th grade and I have learned how to code in the past 5 days')
+st.write(
+  ' Hello, my name is Jamie, I am in 7th grade and I have learned how to code in the past 5 days'
+)
 st.write('Hello, my name is Joshua, I am in 10th grade and I ')
 #Title
 st.title('Data Science Salaries 2023 EDA')
@@ -136,8 +138,10 @@ sns.set(rc={'figure.figsize': (15, 5)})
 plt.xlabel("sepal_length", fontsize=2)
 plt.show()
 
-st.write('This bar graph shows the average salary of a data scientists based off their job title.')
-st.
+st.write(
+  'This bar graph shows the average salary of a data scientists based off their job title.'
+)
+
 # Summary of graph
 
 # This bar graph shows the average salary of a data scientists based off their job title. This graph is very straghtforward and it is clear that there is a big wage gap between job titles.
