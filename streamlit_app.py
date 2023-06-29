@@ -25,16 +25,19 @@ st.write(
 st.markdown("""---""")
 
 # Inspection:
+#exampple of the data
 st.header('Inspection:')
 st.write(" This is an example of what our data looks like.")
 st.write(df.head())
 #st.write("\n")
-
-df.tail()
-df.describe()
+# Showing the country symbols and experience level problems
 df['experience_level'].unique()
 df['experience_level'].value_counts()
-df.isna().sum()
+
+st.write(df.isna().sum())
+st.write(
+  'According to the graph there is no null values, which keeps the data consistent.'
+)
 
 # Code for Cleaning:
 #Drop Code
@@ -140,12 +143,13 @@ st.subheader(
 )
 average_job_title_salary = df.groupby(
   'job_title')['salary_in_usd'].mean().reset_index()
-g = sns.barplot(average_job_title_salary, x='job_title', y='salary_in_usd')
+fig = plt.figure(figsize=(10, 4))
+sns.barplot(average_job_title_salary, x='job_title', y='salary_in_usd')
 plt.title('Average Salary Based on Job Title')
 plt.xticks(rotation=90)
 sns.set(rc={'figure.figsize': (15, 5)})
 plt.xlabel("sepal_length", fontsize=2)
-plt.show()
+st.pyplot(fig)
 
 st.write(
   'This bar graph shows the average salary of a data scientists based off their job title.'
@@ -168,15 +172,21 @@ st.subheader(
 )
 
 fig, ax = plt.subplots()
-violin = sns.violinplot(data=df, x="experience_level", y="salary_in_usd", ax=ax)
-
+violin = sns.violinplot(data=df,
+                        x="experience_level",
+                        y="salary_in_usd",
+                        ax=ax)
 # violin = sns.violinplot(df, x="experience_level", y="salary_in_usd")
 plt.title('Average Salary Based on Experience Level')
-# plt.show()
-# st.pyplot(violin)
 fig = violin.get_figure()
 st.pyplot(fig)
-#Summary of graph
+
+# violin = sns.violinplot(df, x="experience_level", y="salary_in_usd")
+# plt.title('Average Salary Based on Experience Level')
+# # plt.show()
+# # st.pyplot(violin)
+# st.pyplot(fig)
+# #Summary of graph
 
 st.write(
   "This graph shows the distribution of salaries based off experience level. The thicker the violin graph gets the more people are in that salary range."
@@ -192,6 +202,9 @@ st.write(
 
 #Hypothesis 3: How does the country of residence affect a data scientist’s salary?-Jamie
 # Insert code here
+st.subheader(
+  "Hypthesis 3: How does the country of residence affect a data scientist’s salary?"
+)
 Hypothesis_3 = df.groupby(
   "employee_residence")['salary_in_usd'].mean().reset_index()
 fig = px.bar(
@@ -202,7 +215,13 @@ fig.show()
 # Ctrl + /
 # command + /
 #Trends in Graph
-#  Overall, most of the countries make the same amount for the amount of data scientist they have. although, based on the data the countries with more data sciencetist generally make more than the countiries with less data scientist. the only outlier data point is israel, they make over 400k, with only having one Data scientist.
+st.write(
+  "Overall, most of the countries make the same amount of data scientists, although, the countries with more data scientist generally make more than the countiries with less data scientist."
+)
+st.markdown("""---""")
+st.write(
+  "The only outlier data point is israel, they make over 400k, with only having one Data scientist."
+)
 
 # Hypothesis 4: How does the amount of remote work affect a data science  salary in usd? -Jamie
 # Insert code here
