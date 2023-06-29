@@ -143,7 +143,7 @@ st.subheader(
 )
 average_job_title_salary = df.groupby(
   'job_title')['salary_in_usd'].mean().reset_index()
-ffig = plt.figure(figsize=(10, 4))
+ffig = plt.figure(figsize=(15, 15))
 sns.barplot(average_job_title_salary, x='job_title', y='salary_in_usd')
 plt.title('Average Salary Based on Job Title')
 plt.xticks(rotation=90)
