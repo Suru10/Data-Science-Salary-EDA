@@ -14,11 +14,17 @@ st.subheader('Whimsical Wolves ')
 st.write(
   ' Hello, my name is Jamie, I am in 7th grade and I have learned how to code in the past 5 days'
 )
-st.write('Hello, my name is Joshua, I am in 10th grade and I ')
+st.write(
+  "Hello, my name is Joshua, I am in 10th grade and I've been coding for the last 4 years. I've learned languages such as python, java, and SQL."
+)
 #Title
 st.title('Data Science Salaries 2023 EDA')
+st.write(
+  'This data set is comprised of information about jobs related to analyzing data and how it affects their salary. The data set was updated 3 months ago. The Data has been sourced from aijobs.net.'
+)
+st.markdown("""---""")
 # Inspection:
-st.subheader('Inspectionm')
+st.subheader('Inspection')
 
 # Code for Inspection:
 df.head()
@@ -128,7 +134,10 @@ df['employee_residence'] = df['employee_residence'].replace(country_mapping)
 
 # Hypothesis 1: Which job title, for data science, on average has the highest salary? Joshua
 # Insert code here
-st.title('Hypothesis 1')
+st.title('The Organized Data')
+st.subheader(
+  'Hypothesis 1: Which job titles, for data science, on average have the highest paying salaries?'
+)
 average_job_title_salary = df.groupby(
   'job_title')['salary_in_usd'].mean().reset_index()
 g = sns.barplot(average_job_title_salary, x='job_title', y='salary_in_usd')
@@ -141,7 +150,12 @@ plt.show()
 st.write(
   'This bar graph shows the average salary of a data scientists based off their job title.'
 )
-
+st.markdown("""---""")
+st.write("Salaries range from as low as 5,400$ per year to as high as 375,000")
+st.markdown("""---""")
+st.write(
+  "The highest paying job titles on average are Data Science Tech lead, Cloud Data Architect, and Data Lead"
+)
 # Summary of graph
 
 # This bar graph shows the average salary of a data scientists based off their job title. This graph is very straghtforward and it is clear that there is a big wage gap between job titles.
@@ -149,14 +163,19 @@ st.write(
 # Hypothesis 2: How much does a data scientist’s experience level affect their salary? Joshua
 
 # Insert code here
+st.subheader(
+  "Hypthesis 2: How much does a data scientist's experience level affect their salary?"
+)
+
 sns.violinplot(df, x="experience_level", y="salary_in_usd")
 plt.title('Average Salary Based on Experience Level')
 plt.show()
+
 #Summary of graph
 
 # This graph shows the distribution of salaries based off experience level.
 # The thicker the violin graph gets the more people are in that salary range.
-# In this case for example, most entry level data scientists hover around
+# , most entry level data scientists hover around
 # 75k per year.
 
 #Hypothesis 3: How does the country of residence affect a data scientist’s salary?-Jamie
