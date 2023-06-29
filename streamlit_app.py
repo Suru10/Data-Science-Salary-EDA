@@ -9,7 +9,7 @@ import plotly.graph_objects as go
 
 warnings.filterwarnings("ignore")
 df = pd.read_csv('ds_salaries.csv')
-#Introduction
+# Introduction
 st.subheader('Whimsical Wolves ')
 st.write(
   ' Hello, my name is Jamie, I am in 7th grade and I have learned how to code in the past 5 days'
@@ -17,21 +17,21 @@ st.write(
 st.write(
   "Hello, my name is Joshua, I am in 10th grade and I've been coding for the last 4 years. I've learned languages such as python, java, and SQL."
 )
-#Title
+# Title
 st.title('Data Science Salaries 2023 EDA')
 st.write(
   'This data set is comprised of information about jobs related to analyzing data and how it affects their salary. The data set was updated 3 months ago. The Data has been sourced from aijobs.net.'
 )
 st.markdown("""---""")
-# Inspection:
-st.subheader('Inspection')
 
-# Code for Inspection:
-df.head()
+# Inspection:
+st.header('Inspection:')
+st.write(" This is an example of what our data looks like.")
+st.write(df.head())
+#st.write("\n")
+
 df.tail()
 df.describe()
-df.columns
-df.shape
 df['experience_level'].unique()
 df['experience_level'].value_counts()
 df.isna().sum()
@@ -167,13 +167,20 @@ st.subheader(
   "Hypthesis 2: How much does a data scientist's experience level affect their salary?"
 )
 
-sns.violinplot(df, x="experience_level", y="salary_in_usd")
+violin = sns.violinplot(df, x="experience_level", y="salary_in_usd")
 plt.title('Average Salary Based on Experience Level')
-plt.show()
-
+# plt.show()
+st.pyplot(violin)
 #Summary of graph
 
-# This graph shows the distribution of salaries based off experience level.
+st.write(
+  "This graph shows the distribution of salaries based off experience level. The thicker the violin graph gets the more people are in that salary range."
+)
+st.markdown("""---""")
+st.write(
+  "There is a clear gap between experience levels with entry level data scientists only averaging 75k per year while senior executives average almost 200k per year."
+)
+
 # The thicker the violin graph gets the more people are in that salary range.
 # , most entry level data scientists hover around
 # 75k per year.
