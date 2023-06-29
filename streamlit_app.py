@@ -34,9 +34,11 @@ st.write(df.head())
 col1, col2 = st.columns(2)
 col1.write('Experience level column')
 col1.write(df['experience_level'].unique())
-col2.write('employee residence column')
+col2.write('Employee residence column')
 col2.write(df['employee_residence'].unique())
 
+
+col1, col2 = st.columns(2)
 st.write(df.isna().sum())
 st.write(
   'According to the graph there is no null values, which keeps the data consistent.'
@@ -150,9 +152,8 @@ fig = plt.figure(figsize=(10, 4))
 sns.barplot(average_job_title_salary, x='job_title', y='salary_in_usd')
 plt.title('Average Salary Based on Job Title')
 plt.xticks(rotation=90)
-sns.set(font_scale=0.3)
+plt.xlabel("petal_length", fontsize=1)
 sns.set(rc={'figure.figsize': (15, 5)})
-#plt.xlabel("petal_length", fontsize=0)
 st.pyplot(fig)
 
 st.write(
@@ -185,11 +186,11 @@ plt.title('Average Salary Based on Experience Level')
 fig = violin.get_figure()
 st.pyplot(fig)
 
-violin = sns.violinplot(df, x="experience_level", y="salary_in_usd")
-plt.title('Average Salary Based on Experience Level')
-# plt.show()
-# st.pyplot(violin)
-st.pyplot(fig)
+# violin = sns.violinplot(df, x="experience_level", y="salary_in_usd")
+# plt.title('Average Salary Based on Experience Level')
+# # plt.show()
+# # st.pyplot(violin)
+# st.pyplot(fig)
 #Summary of graph
 
 st.write(
