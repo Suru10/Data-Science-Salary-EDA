@@ -150,6 +150,10 @@ plt.title('Average Salary Based on Job Title')
 plt.xticks(rotation=90)  # Rotate the x-axis labels
 plt.xlabel("Job Title")  # Correct the x-axis label
 st.pyplot(fig)
+fig = px.bar(average_job_title_salary, x='job_title', y='salary_in_usd')
+fig.update_layout(title='Average Salary Based on Job Title', xaxis_tickangle=-45)
+st.plotly_chart(fig, use_container_width=True)
+
 
 st.write(
   'This bar graph shows the average salary of a data scientists based off their job title.'
