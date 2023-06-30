@@ -19,7 +19,7 @@ st.write(
 # Title
 st.title('Data Science Salaries 2023 EDA')
 st.write(
-  'This data set is comprised of information about different components of Ai jobs how it affects their salary. The data set was updated 3 months ago. The Data has been sourced from aijobs.net.'
+  'This data set is comprised of information about different components of Ai jobs and how it affects their salary. The data set was updated 3 months ago and it was sourced from aijobs.net.'
 )
 st.markdown("""---""")
 
@@ -196,7 +196,8 @@ st.write(
   'This bar graph shows the average salary of a data scientists based off their job title.'
 )
 st.markdown("""""")
-st.write("Salaries range from as low as 5,400$ per year to as high as 375,000")
+st.write(
+  "Salaries range from as low as 5,400$ per year to as high as 375,000$")
 st.markdown("""""")
 
 # Summary of graph
