@@ -35,7 +35,7 @@ st.write('\n NULL VALUES')
 col1, col2 = st.columns(2)
 col1.write(df.isna().sum())
 col2.subheader(
-  "According to the table there is no null values, it keeps the data consistent."
+  "According to the table there is no null values, so it keeps the data consistent."
 )
 st.markdown("""---""")
 # Cleaning:
@@ -66,8 +66,8 @@ data = {
   ]
 }
 
-df = pd.DataFrame(data)
-col1.table(df)
+dff = pd.DataFrame(data)
+col1.table(dff)
 col2.write("AFTER THE CHANGE")
 #Value Name Change
 df['experience_level'] = df['experience_level'].replace(
@@ -169,8 +169,8 @@ data = {
   ]
 }
 
-df = pd.DataFrame(data)
-col2.table(df)
+dff = pd.DataFrame(data)
+col2.table(dff)
 st.subheader('Reasoning')
 st.write(
   "The experience level and The employee residence columns have symbols that could be unclear or confusing, so it was changed to it's orignal meaning."
