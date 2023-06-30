@@ -197,7 +197,7 @@ st.write(
 )
 st.markdown("""""")
 st.write(
-  "Salaries range from as low as 5,400$ per year to as high as 375,000$")
+  "Salaries range from as low as 5,400 USD per year to as high as 375,000 USD")
 st.markdown("""""")
 
 # Summary of graph
